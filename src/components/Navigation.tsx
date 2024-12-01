@@ -19,12 +19,16 @@ const Navigation = () => {
               <NavLink to="/projects" className={({ isActive }) => 
                 `px-3 py-2 rounded-md text-sm font-medium ${isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'}`
               }>Projects</NavLink>
+                 <NavLink to="/skills" className={({ isActive }) => 
+                `px-3 py-2 rounded-md text-sm font-medium ${isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'}`
+              }>Skills</NavLink>
               <NavLink to="/about" className={({ isActive }) => 
                 `px-3 py-2 rounded-md text-sm font-medium ${isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'}`
               }>About</NavLink>
               <NavLink to="/contact" className={({ isActive }) => 
                 `px-3 py-2 rounded-md text-sm font-medium ${isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'}`
               }>Contact</NavLink>
+          
             </div>
           </div>
           
@@ -44,8 +48,10 @@ const Navigation = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
             <NavLink to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Home</NavLink>
             <NavLink to="/projects" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Projects</NavLink>
+            <NavLink to="/skills" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Skills</NavLink>
             <NavLink to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">About</NavLink>
             <NavLink to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Contact</NavLink>
+           
           </div>
         </div>
       )}

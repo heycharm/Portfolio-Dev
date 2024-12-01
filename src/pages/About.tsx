@@ -1,61 +1,82 @@
 import { motion } from 'framer-motion';
+import styled, { keyframes, ThemeProvider } from 'styled-components';
 import { Code2, Database, FileCode, Monitor, Server, Terminal, Wrench } from 'lucide-react';
+import ParticleComponent from '../components/ParticleComponent';
+import BigTitle from '../components/BigTitle';
 
-const technologies = [
-  { icon: FileCode, name: 'Frontend Dev' },
-  { icon: Server, name: 'Backend Dev' },
-  { icon: Database, name: 'Databases' },
-  { icon: Code2, name: 'Clean Code' },
-  // { icon: Git, name: 'Version Control' },
-  { icon: Terminal, name: 'CLI Tools' },
-  { icon: Monitor, name: 'UI/UX' },
-  { icon: Wrench, name: 'DevOps' }
-];
 
-export default function About() {
+
+
+const Box = styled.div`
+  background-color: ${(props) => props.theme.body};
+  width: 100vw;
+  height: auto /* Increased height for both sections */
+  position: relative;
+  overflow: hidden;
+`;
+
+const float = keyframes`
+  0% { transform: translateY(-10px) }
+  50% { transform: translateY(15px) translateX(15px) }
+  100% { transform: translateY(-10px) }
+`;
+
+const Spaceman = styled.div`
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 20vw;
+  animation: ${float} 4s ease infinite;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const Main = styled.div`
+  padding: 2rem;
+  width: 50vw;
+  height: 85vh;
+  z-index: 3;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(0.6rem + 1vw);
+  position: absolute;
+  left: calc(5rem + 5vw);
+  top: 10rem;
+  font-family: 'Ubuntu Mono', monospace;
+  font-style: italic;
+`;
+
+
+
+const About = () => {
   return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 text-white">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold mb-8 text-center">About Me</h2>
-          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-8 mb-12">
-            <p className="text-lg leading-relaxed mb-6">
-              I'm a passionate full-stack developer with 5 years of experience building web applications.
-              I love creating elegant solutions to complex problems and am constantly learning new technologies.
-            </p>
-            <p className="text-lg leading-relaxed">
-              When I'm not coding, you can find me contributing to open-source projects,
-              writing technical blog posts, or exploring new technologies.
-            </p>
-          </div>
-        </motion.div>
+    <Box>
+      <ParticleComponent theme="dark" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h3 className="text-2xl font-bold mb-8 text-center">Technologies & Tools</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col items-center bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors"
-              >
-                <tech.icon size={32} className="mb-2" />
-                <span className="text-sm">{tech.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </div>
+      {/* ABOUT Section */}
+      <Spaceman>
+        {/* <img src={astronaut} alt="spaceman" /> */}
+      </Spaceman>
+      <Main>
+        I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
+        <br /> <br />
+        I'm interested in the whole frontend stack, like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
+        <br /> <br />
+        I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+      </Main>
+
+      <BigTitle text="ABOUT" top="10%" left="5%" />
+
+
+
+    </Box>
+    
   );
-}
+};
+
+export default About;

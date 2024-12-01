@@ -6,12 +6,13 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Navigation from './components/Navigation';
+import Skills from './pages/Skills'
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-black">
-        <AnimatedBackground />
+        {/* <AnimatedBackground /> */}
         <Navigation />
         {/* <Navbar /> */}
         <Routes>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </div>
     </Router>

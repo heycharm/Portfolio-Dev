@@ -1,59 +1,93 @@
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from "react";
+import styled, { ThemeProvider } from "styled-components";
+// import { DarkTheme } from "./Themes";
+import { motion } from "framer-motion";
+import ParticleComponent from "../components/ParticleComponent";
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform built with React and Node.js",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80",
-    tech: ["React", "Node.js", "MongoDB", "Express"]
-  },
-  {
-    title: "AI Image Generator",
-    description: "An AI-powered image generation tool using DALL-E API",
-    image: "https://images.unsplash.com/photo-1547954575-855750c57bd3?auto=format&fit=crop&w=800&q=80",
-    tech: ["React", "OpenAI API", "TailwindCSS"]
-  },
-  {
-    title: "Real-time Chat App",
-    description: "A real-time chat application with WebSocket integration",
-    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80",
-    tech: ["React", "Socket.io", "Express", "MongoDB"]
-  }
-];
+import { Work } from "../data/WorkData";
+import Card from "../components/Card";
+// import { YinYang } from "./AllSvgs";
+import BigTitle from "../components/BigTitle";
 
-export default function Projects() {
-  return (
-    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden"
-            >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+const Box = styled.div`
+  background-color: ${(props) => props.theme.body};
+  height: 400vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+const Main = styled(motion.ul)`
+  position: fixed;
+  top: 12rem;
+  left: calc(10rem + 15vw);
+  height: 35vh;
+  display: flex;
+  color: white;
+`;
+
+
+// Framer-motion Configuration
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    },
+  },
+};
+ const DarkTheme = {
+
+  body:"#000000",
+  text:"#FCF6F4",
+  fontFamily:"'Source Sans Pro', sans-serif",
+  textRgba : "252, 246, 244",
+  bodyRgba:"0,0,0",
 }
+const Projects: React.FC = () => {
+  const ref = useRef<HTMLUListElement | null>(null);
+  const yinyang = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    const yinYangElement = yinyang.current;
+
+    const rotate = () => {
+      if (element) {
+        element.style.transform = `translateX(${-window.pageYOffset}px)`;
+      }
+
+      if (yinYangElement) {
+        yinYangElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
+      }
+    };
+
+    window.addEventListener("scroll", rotate);
+    return () => {
+      window.removeEventListener("scroll", rotate);
+    };
+  }, []);
+
+  return ( 
+  
+    <ThemeProvider theme={DarkTheme}>
+     
+    <Box>
+    <ParticleComponent theme="dark" />
+      <Main ref={ref} variants={container} initial="hidden" animate="show">
+        {Work.map((d) => (
+          <Card key={d.id} data={d} />
+        ))}
+      </Main>
+  
+
+      <BigTitle text="WORK" top="5%" right="12%" position="fixed"/>
+      {/* <Text text="WORK" top="10%" right="20%" /> */}
+    </Box>
+  </ThemeProvider>
+  );
+};
+
+export default Projects;
