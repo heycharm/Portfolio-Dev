@@ -12,7 +12,7 @@ interface BigTitleProps {
 
 // Styled component with props typing
 const Text = styled.h1<BigTitleProps>`
-padding: 53px 50px 33px 88px;
+padding: 53px 47px 31px 53px;
 
   position: ${(props) => props.position};
   top: ${(props) => props.top};
@@ -20,7 +20,8 @@ padding: 53px 50px 33px 88px;
   right: ${(props) => props.right};
   color: rgba(252, 246, 244, 0.1);
   font-size: calc(5rem + 5vw);
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "League Spartan", sans-serif;
+   font-weight: 800;
   z-index: 0;
 `;
 

@@ -1,18 +1,16 @@
-import { motion } from 'framer-motion';
-import styled, { keyframes, ThemeProvider } from 'styled-components';
-import { Code2, Database, FileCode, Monitor, Server, Terminal, Wrench } from 'lucide-react';
+import styled, { keyframes } from 'styled-components';
 import ParticleComponent from '../components/ParticleComponent';
 import BigTitle from '../components/BigTitle';
-
-
-
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
   width: 100vw;
-  height: auto /* Increased height for both sections */
+  min-height: 100vh; /* Ensures full height */
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const float = keyframes`
@@ -32,50 +30,83 @@ const Spaceman = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    top: 15%;
+    right: 3%;
+  }
+
+  @media (max-width: 480px) {
+    width: 40vw;
+    top: 20%;
+    right: 2%;
+  }
 `;
 
 const Main = styled.div`
+  width: 60vw;
   padding: 2rem;
-  width: 50vw;
-  height: 85vh;
   z-index: 3;
   line-height: 1.5;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: calc(0.6rem + 1vw);
-  position: absolute;
-  left: calc(5rem + 5vw);
-  top: 10rem;
+  font-size: calc(0.8rem + 0.5vw);
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
+  text-align: center;
+  position: relative;
+  margin-top: -3rem;
+
+  @media (max-width: 1024px) {
+    width: 70vw;
+    font-size: calc(0.7rem + 0.5vw);
+  }
+
+  @media (max-width: 768px) {
+    width: 85vw;
+    font-size: calc(0.7rem + 0.4vw);
+  }
+
+  @media (max-width: 480px) {
+    width: 90vw;
+    font-size: calc(0.6rem + 0.3vw);
+  }
 `;
-
-
 
 const About = () => {
   return (
     <Box>
       <ParticleComponent theme="dark" />
 
-      {/* ABOUT Section */}
+      {/* "ABOUT" at the Top */}
+      <BigTitle text="ABOUT" top="5%" left="5%" />
+
+      {/* Spaceman Animation */}
       <Spaceman>
         {/* <img src={astronaut} alt="spaceman" /> */}
       </Spaceman>
+
+      {/* Main Content */}
       <Main>
-        I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
-        <br /> <br />
-        I'm interested in the whole frontend stack, like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-        <br /> <br />
-        I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+        <p>
+          I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user
+          experience.
+        </p>
+        <br />
+        <p>
+          I'm interested in the whole frontend stack, like trying new things and building great projects. I'm an
+          independent freelancer and blogger. I love to write blogs and read books.
+        </p>
+        <br />
+        <p>
+          I believe everything is an Art when you put your consciousness in it. You can connect with me via social
+          links.
+        </p>
       </Main>
-
-      <BigTitle text="ABOUT" top="10%" left="5%" />
-
-
-
     </Box>
-    
   );
 };
 

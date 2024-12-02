@@ -10,24 +10,19 @@ import reactjs from './tech/reactjs.png';
 import redux from './tech/redux.png';
 import tailwind from './tech/tailwind.png';
 import typescript from './tech/typescript.png';
-import graphql from './tech/graphql.png';
-import postgresql from './tech/postgresql.png';
-import rubyrails from './tech/rubyrails.png';
+import Mongodb from './tech/Mongodb.png';
 
 export {
   css,
   docker,
   figma,
   git,
-  graphql,
   html,
   javascript,
   nodejs,
-  postgresql,
-  rubyrails,
   reactjs,
   redux,
   tailwind,
   typescript,
-
+Mongodb
 };

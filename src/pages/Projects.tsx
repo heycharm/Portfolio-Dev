@@ -24,7 +24,10 @@ const Main = styled(motion.ul)`
   height: 35vh;
   display: flex;
   color: white;
-`;
+  
+
+`
+;
 
 
 // Framer-motion Configuration
@@ -56,13 +59,14 @@ const Projects: React.FC = () => {
 
     const rotate = () => {
       if (element) {
-        element.style.transform = `translateX(${-window.pageYOffset}px)`;
+        element.style.transform = `translateX(${-window.scrollY}px)`; // Replaced pageYOffset with scrollY
       }
-
+    
       if (yinYangElement) {
-        yinYangElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
+        yinYangElement.style.transform = `rotate(${-window.scrollY}deg)`; // Replaced pageYOffset with scrollY
       }
     };
+    
 
     window.addEventListener("scroll", rotate);
     return () => {
@@ -83,7 +87,7 @@ const Projects: React.FC = () => {
       </Main>
   
 
-      <BigTitle text="WORK" top="5%" right="12%" position="fixed"/>
+      <BigTitle text="WORK" top="5%" right="5%" position="fixed"/>
       {/* <Text text="WORK" top="10%" right="20%" /> */}
     </Box>
   </ThemeProvider>

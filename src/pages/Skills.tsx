@@ -1,12 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { BallCanvas } from '../components/canvas';
 import { SectionWrapper } from '../hoc';
 import { technologies } from '../constants';
-// import { styles } from '../styles';
-import { textVariant } from '../utils/motion';
 import ParticleComponent from '../components/ParticleComponent';
-import BigTitle from '../components/BigTitle';
 import styled from 'styled-components';
 
 // Define the type for a technology item
@@ -15,7 +11,6 @@ interface Technology {
   icon: string; // Assuming the icon is a string (URL or class name). Adjust as needed.
 }
 
-
 // Define the interface for the props
 interface BigTitleProps {
   top?: string;
@@ -23,49 +18,71 @@ interface BigTitleProps {
   right?: string;
   text: string;
 }
+
 const Text = styled.h1<BigTitleProps>`
   position: sticky;
-padding: 40px 30px 0px 30px;
-margin-right: -49px;
-display:flex;
-flex-direction: row-reverse;
-//   top: 20%;
-  left: 30%;
-  right: 20%;
- color: rgba(252, 246, 244, 0.1);
-  font-size: calc(5rem + 5vw);
-  font-family: 'Ubuntu Mono', monospace;
+  padding: 20px 15px 0px 15px;
+  text-align: center;
+  color: rgba(252, 246, 244, 0.1);
+  font-size: calc(5rem + 5vw); /* Adjust font size for responsiveness */
+   font-family: "League Spartan", sans-serif;
+   font-weight: 800;
   z-index: 0;
+
+  @media (max-width: 768px) {
+    font-size: calc(2rem + 1vw); /* Smaller font size for tablets */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 4rem; /* Smaller font size for mobile */
+
+  }
 `;
 
+const SkillsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem; /* Adjust gap for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem; /* Adjust gap further for mobile screens */
+  }
+`;
+
+const SkillItem = styled.div`
+  width: 150px; /* Default size */
+  height: 150px;
+
+  @media (max-width: 768px) {
+    width: 80px; /* Adjust size for smaller screens */
+    height: 80px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100px; /* Adjust size further for mobile screens */
+    height: 100px;
+  }
+`;
 
 const Tech: React.FC = () => {
-
-
   return (
     <>
-
-      {/* <motion.div variants={textVariant()}>
-        
-      </motion.div> */}
-<Text >
-    SKILLS
-</Text>
-{/* <div className='flex '>
-<div className='top-5%'>
-<BigTitle text="SKILLS" top="5%" right="12%" position="fixed"/>
-</div> */}
-
-      <div className="flex flex-wrap justify-center gap-10  ">
-     
-      <ParticleComponent/>
+      <Text>SKILLS</Text>
+      <ParticleComponent />
+      <SkillsContainer>
         {technologies.map((technology: Technology) => (
-          <div className="w-28 h-15" key={technology.name}>
+          <SkillItem key={technology.name}>
             <BallCanvas icon={technology.icon} />
-          </div>
+          </SkillItem>
         ))}
-      </div>
-      {/* </div> */}
+      </SkillsContainer>
     </>
   );
 };

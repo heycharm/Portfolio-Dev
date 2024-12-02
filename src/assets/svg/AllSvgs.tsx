@@ -35,8 +35,7 @@ export const PowerBtn = (props) => {
           </svg>
         )
   }
-  export default Github;
-  
+  export default Github
   export const Twitter = (props) => {
       return (
           <svg
