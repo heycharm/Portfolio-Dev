@@ -95,18 +95,15 @@ const About = () => {
       {/* Main Content */}
       <Main>
         <p>
-          I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user
-          experience.
+        Hi, I'm Chinmay Pundir, a passionate 4th-year B.Tech student specializing in CSE with AIML. I am a dedicated Full Stack Web Developer with expertise in building dynamic, user-friendly web applications.
         </p>
         <br />
         <p>
-          I'm interested in the whole frontend stack, like trying new things and building great projects. I'm an
-          independent freelancer and blogger. I love to write blogs and read books.
+        My tech stack includes MERN (MongoDB, Express, React, Node.js), and I enjoy turning ideas into scalable and efficient solutions.
         </p>
         <br />
         <p>
-          I believe everything is an Art when you put your consciousness in it. You can connect with me via social
-          links.
+        Beyond coding, I’m always eager to learn, explore cutting-edge technologies, and contribute to impactful projects. Let's create something amazing together!
         </p>
       </Main>
     </Box>

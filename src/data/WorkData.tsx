@@ -3,40 +3,40 @@
 export const Work = [
     {
         id:1,
-        name:"Agency Landing Page",
+        name:"PASSOP - Password Manager",
         description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
-        tags:["react","gsap","styledComponents"],
+        tags:["react","express","mongodb", "mern"],
         
-        demo:"https://agency-website-eta.vercel.app/",
-        github:"https://github.com/codebucks27/Agency-website"
+        demo:"https://passop-heycharm.vercel.app/",
+        github:"https://github.com/heycharm/PASSOP-Password-Manager"
     },
     {
         id:2,
-        name:"Job listing website",
-        description:"A Job listing website build in ReactJS. With searching and filtering functionalities.",
-        tags:["react","sass"],
+        name:"Brainwave - AI product site",
+        description:"Designed a product page for an AI chatbot showcasing user capabilities.",
+        tags:["react","tailwind"],
         
-        demo:"http://react-job-listing-website.codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/react-job-listing-website"
+        demo:"https://brain-wave-heycharms-projects.vercel.app/",
+        github:"https://github.com/heycharm/BrainWave"
         
     },
     {
         id:3,
-        name:"Dev.to Clone",
-        description:"A clone of Dev.to build using ReactJS. With realtime fetching of articles from dev.to using API.",
-        tags:["react","api","sass"],
+        name:"Apple iPhone Website Replica",
+        description:"Created a landing page for Apple's latest iPhone launch, highlighting product features and pricing.",
+        tags:["react","tailwind"],
         
-        demo:"http://devto-clone-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/devto-clone"
+        demo:"https://iphone-charm.netlify.app/",
+        github:"https://github.com/heycharm/Apple-iPhone-Website-Project"
     },
     {
         id:4,
-        name:"Sidebar Menu",
-        description:"A cool looking sidebar menu build using ReactJS and styledComponents.It has really smooth animations.",
-        tags:["react","styledComponents","react-router"],
+        name:"Text Utility",
+        description:"Built a user utility website offering text manipulation features like case conversion and space removal.",
+        tags:["react","utility","tailwind"],
         
-        demo:"https://react-sidebar.vercel.app/",
-        github:"https://github.com/codebucks27/react-sidebar"
+        demo:"https://heycharm.github.io/",
+        github:"https://github.com/heycharm/Text-Utility--React"
        
     },
     

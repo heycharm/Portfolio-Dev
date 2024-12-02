@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import ParticleComponent from '../components/ParticleComponent';
 
 export default function Contact() {
   return (
     <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 text-white">
+      <ParticleComponent />
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +21,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.a
-            href="https://github.com"
+            href="https://github.com/heycharm"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, x: -20 }}
@@ -35,7 +37,7 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/chinmay_2"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, x: 20 }}
@@ -51,7 +53,7 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="https://instagram.com"
+            href="https://instagram.com/chinmay.p2"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, x: -20 }}
@@ -67,7 +69,7 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="mailto:example@email.com"
+            href="mailto:heychinmay2@gmail.com"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -76,7 +78,7 @@ export default function Contact() {
             <Mail size={24} className="mr-4" />
             <div>
               <h3 className="font-semibold">Email</h3>
-              <p className="text-gray-300">example@email.com</p>
+              <p className="text-gray-300">heychinmay2@gmail.com</p>
             </div>
           </motion.a>
         </div>

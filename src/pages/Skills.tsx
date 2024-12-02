@@ -35,7 +35,8 @@ const Text = styled.h1<BigTitleProps>`
   }
 
   @media (max-width: 480px) {
-    font-size: 4rem;
+    font-size: calc(5rem + 5vw);
+    margin: 0px 0px 0px 0px 
   }
 `;
 

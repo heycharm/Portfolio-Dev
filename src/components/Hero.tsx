@@ -52,7 +52,7 @@ const Hero = () => {
             transition={{ duration: 1 }}
             className="text-6xl font-bold mb-4"
           >
-            Creative Developer
+            CHINMAY PUNDIR
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-xl text-gray-300 mb-8"
           >
-            Crafting digital experiences through code
+            FULL STACK WEB DEVELOPER
           </motion.p>
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors"
           >
-            View Projects
+           <a target='blank' href="https://drive.google.com/file/d/1vVg21o_S-UhPuAig4zdcnJUExLs8bQoc/view?usp=drive_link">DOWNLOAD RESUME</a> 
           </motion.button>
         </div>
       </div>
