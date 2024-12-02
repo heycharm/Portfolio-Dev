@@ -46,7 +46,7 @@ const Spaceman = styled.div`
 
 const Main = styled.div`
   width: 60vw;
-  padding: 2rem;
+  // padding: 2rem;
   z-index: 3;
   line-height: 1.5;
   display: flex;
@@ -58,7 +58,7 @@ const Main = styled.div`
   font-style: italic;
   text-align: center;
   position: relative;
-  margin-top: -3rem;
+  margin-top:-20px ;
 
   @media (max-width: 1024px) {
     width: 70vw;
@@ -72,18 +72,21 @@ const Main = styled.div`
 
   @media (max-width: 480px) {
     width: 90vw;
-    font-size: calc(0.6rem + 0.3vw);
+    font-size: 15px;
   }
 `;
-
+const AboutTxt = styled.div`
+margin: 50px 0px 0px 0px 
+`
 const About = () => {
   return (
     <Box>
       <ParticleComponent theme="dark" />
 
       {/* "ABOUT" at the Top */}
+      <AboutTxt>
       <BigTitle text="ABOUT" top="5%" left="5%" />
-
+      </AboutTxt>
       {/* Spaceman Animation */}
       <Spaceman>
         {/* <img src={astronaut} alt="spaceman" /> */}

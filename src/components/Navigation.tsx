@@ -1,13 +1,25 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
+import gsap from "gsap";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleLinkClick = () => {
     setIsOpen(false); // Close the menu when a link is clicked
   };
+
+  useEffect(() => {
+    if (isOpen && menuRef.current) {
+      gsap.fromTo(
+        menuRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+      );
+    }
+  }, [isOpen]);
 
   return (
     <nav className="fixed w-full z-50 bg-black/10 backdrop-blur-sm">
@@ -25,7 +37,7 @@ const Navigation = () => {
                 to="/"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'
+                    isActive ? "text-white bg-gray-900" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
@@ -35,7 +47,7 @@ const Navigation = () => {
                 to="/projects"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'
+                    isActive ? "text-white bg-gray-900" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
@@ -45,7 +57,7 @@ const Navigation = () => {
                 to="/skills"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'
+                    isActive ? "text-white bg-gray-900" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
@@ -55,7 +67,7 @@ const Navigation = () => {
                 to="/about"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'
+                    isActive ? "text-white bg-gray-900" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
@@ -65,7 +77,7 @@ const Navigation = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium ${
-                    isActive ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white'
+                    isActive ? "text-white bg-gray-900" : "text-gray-300 hover:text-white"
                   }`
                 }
               >
@@ -88,8 +100,8 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
+        <div ref={menuRef} className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black">
             <NavLink
               to="/"
               onClick={handleLinkClick}
