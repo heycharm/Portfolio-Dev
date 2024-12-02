@@ -13,6 +13,7 @@ const Box = styled.div`
   align-items: center;
 `;
 
+// Floating animation for spaceman
 const float = keyframes`
   0% { transform: translateY(-10px) }
   50% { transform: translateY(15px) translateX(15px) }
@@ -44,9 +45,21 @@ const Spaceman = styled.div`
   }
 `;
 
+// Keyframes for ease-in animation
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+// Apply animation to Main component
 const Main = styled.div`
   width: 60vw;
-  // padding: 2rem;
   z-index: 3;
   line-height: 1.5;
   display: flex;
@@ -58,7 +71,10 @@ const Main = styled.div`
   font-style: italic;
   text-align: center;
   position: relative;
-  margin-top:-20px ;
+  margin-top: -20px;
+
+  opacity: 0; /* Start with invisible */
+  animation: ${fadeIn} 1.5s ease-in forwards; /* Ease-in animation */
 
   @media (max-width: 1024px) {
     width: 70vw;
@@ -75,9 +91,11 @@ const Main = styled.div`
     font-size: 15px;
   }
 `;
+
 const AboutTxt = styled.div`
-margin: 50px 0px 0px 0px 
-`
+  margin: 50px 0px 0px 0px;
+`;
+
 const About = () => {
   return (
     <Box>
@@ -85,8 +103,9 @@ const About = () => {
 
       {/* "ABOUT" at the Top */}
       <AboutTxt>
-      <BigTitle text="ABOUT" top="5%" left="5%" />
+        <BigTitle text="ABOUT" top="5%" left="5%" />
       </AboutTxt>
+
       {/* Spaceman Animation */}
       <Spaceman>
         {/* <img src={astronaut} alt="spaceman" /> */}
@@ -95,15 +114,15 @@ const About = () => {
       {/* Main Content */}
       <Main>
         <p>
-        Hi, I'm Chinmay Pundir, a passionate 4th-year B.Tech student specializing in CSE with AIML. I am a dedicated Full Stack Web Developer with expertise in building dynamic, user-friendly web applications.
+          Hi, I'm Chinmay Pundir, a passionate 4th-year B.Tech student specializing in CSE with AIML. I am a dedicated Full Stack Web Developer with expertise in building dynamic, user-friendly web applications.
         </p>
         <br />
         <p>
-        My tech stack includes MERN (MongoDB, Express, React, Node.js), and I enjoy turning ideas into scalable and efficient solutions.
+          My tech stack includes MERN (MongoDB, Express, React, Node.js), and I enjoy turning ideas into scalable and efficient solutions.
         </p>
         <br />
         <p>
-        Beyond coding, I’m always eager to learn, explore cutting-edge technologies, and contribute to impactful projects. Let's create something amazing together!
+          Beyond coding, I’m always eager to learn, explore cutting-edge technologies, and contribute to impactful projects. Let's create something amazing together!
         </p>
       </Main>
     </Box>
